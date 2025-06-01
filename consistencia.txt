@@ -1,0 +1,4 @@
+HHD >= 0
+HHI >= 0
+edad >= 10 
+per.hog >= 1
