@@ -194,6 +194,8 @@ Summary.NA = miss(Data)
 # 5.  Sobre el conjunto de variables cuantitativas, realice un diagnóstico de datos atípicos
 
 # Visuaizar datos atipicos
+
+#Huella Hidrica Directa
 x11()
 par(mfrow=c(3,1))
 with(Data,{
@@ -203,6 +205,7 @@ with(Data,{
 }
 )
 
+# Huella Hidrica Indirecta
 x11()
 par(mfrow=c(3,1))
 with(Data,{
@@ -212,6 +215,7 @@ with(Data,{
 }
 )
 
+# Personas en hogar
 x11()
 par(mfrow=c(2,1))
 with(Data,{
@@ -324,42 +328,42 @@ par(mfrow = c(3, 2), mar = c(6, 4, 4, 2) + 0.1)
 # 1. HHD por Sexo
 boxplot(HHD ~ genero, data = Data_ImputM,
         main = "HHD por Sexo",
-        col = "lightblue",
+        col = "yellow",
         xlab = "Sexo : 1. Femenino, 2. Masculino", ylab = "HHD",
         las = 1)
 
 # 2. HHI por Sexo
 boxplot(HHI ~ genero, data = Data_ImputM,
         main = "HHI por Sexo",
-        col = "lightblue",
+        col = "yellow",
         xlab = "Sexo : 1. Femenino, 2. Masculino", ylab = "HHI",
         las = 1)
 
 # 3. HHD por Grado Escolar
 boxplot(HHD ~ grado, data = Data_ImputM,
         main = "HHD por Grado Escolar",
-        col = "lightgreen",
+        col = "blue",
         xlab = "Grado : 6. Sexto, 7. Septimo, 8. Octavo, 9. Noveno, 10. Decimo, 11.Once", ylab = "HHD",
         las = 2)  # Texto vertical para mejor ajuste
 
 # 4. HHI por Grado Escolar
 boxplot(HHI ~ grado, data = Data_ImputM,
         main = "HHI por Grado Escolar",
-        col = "lightgreen",
+        col = "blue",
         xlab = "Grado : 6. Sexto, 7. Septimo, 8. Octavo, 9. Noveno, 10. Decimo, 11.Once", ylab = "HHI",
         las = 2)
 
 # 5. HHD por Zona
 boxplot(HHD ~ zona, data = Data_ImputM,
         main = "HHD por Zona",
-        col = "orange",
+        col = "red",
         xlab = "Zona: 1. Urbana, 2. Rural", ylab = "HHD",
         las = 1)
 
 # 6. HHI por Zona
 boxplot(HHI ~ zona, data = Data_ImputM,
         main = "HHI por Zona",
-        col = "orange",
+        col = "red",
         xlab = "Zona: 1. Urbana, 2. Rural", ylab = "HHI",
         las = 1)
 
@@ -369,18 +373,18 @@ boxplot(HHI ~ zona, data = Data_ImputM,
 resumen_genero <- Data_ImputM %>%
   group_by(genero) %>%
   summarise(
-    edad_media = mean(edad, na.rm = TRUE),
-    edad_mediana = median(edad, na.rm = TRUE),
-    edad_sd = sd(edad, na.rm = TRUE),
-    HHD_media = mean(HHD, na.rm = TRUE),
-    HHD_mediana = median(HHD, na.rm = TRUE),
-    HHD_sd = sd(HHD, na.rm = TRUE),
-    HHI_media = mean(HHI, na.rm = TRUE),
-    HHI_mediana = median(HHI, na.rm = TRUE),
-    HHI_sd = sd(HHI, na.rm = TRUE),
-    per_hog_media = mean(per.hog, na.rm = TRUE),
-    per_hog_mediana = median(per.hog, na.rm = TRUE),
-    per_hog_sd = sd(per.hog, na.rm = TRUE)
+    edad_media = mean(edad),
+    edad_mediana = median(edad),
+    edad_sd = sd(edad),
+    HHD_media = mean(HHD),
+    HHD_mediana = median(HHD),
+    HHD_sd = sd(HHD),
+    HHI_media = mean(HHI),
+    HHI_mediana = median(HHI),
+    HHI_sd = sd(HHI),
+    per_hog_media = mean(per.hog),
+    per_hog_mediana = median(per.hog),
+    per_hog_sd = sd(per.hog)
   )
 View(resumen_genero)
 
@@ -388,18 +392,18 @@ View(resumen_genero)
 resumen_grado <- Data_ImputM %>%
   group_by(grado) %>%
   summarise(
-    edad_media = mean(edad, na.rm = TRUE),
-    edad_mediana = median(edad, na.rm = TRUE),
-    edad_sd = sd(edad, na.rm = TRUE),
-    HHD_media = mean(HHD, na.rm = TRUE),
-    HHD_mediana = median(HHD, na.rm = TRUE),
-    HHD_sd = sd(HHD, na.rm = TRUE),
-    HHI_media = mean(HHI, na.rm = TRUE),
-    HHI_mediana = median(HHI, na.rm = TRUE),
-    HHI_sd = sd(HHI, na.rm = TRUE),
-    per_hog_media = mean(per.hog, na.rm = TRUE),
-    per_hog_mediana = median(per.hog, na.rm = TRUE),
-    per_hog_sd = sd(per.hog, na.rm = TRUE)
+    edad_media = mean(edad),
+    edad_mediana = median(edad),
+    edad_sd = sd(edad),
+    HHD_media = mean(HHD),
+    HHD_mediana = median(HHD),
+    HHD_sd = sd(HHD),
+    HHI_media = mean(HHI),
+    HHI_mediana = median(HHI),
+    HHI_sd = sd(HHI),
+    per_hog_media = mean(per.hog),
+    per_hog_mediana = median(per.hog),
+    per_hog_sd = sd(per.hog)
   )
 
 View(resumen_grado)
@@ -408,18 +412,18 @@ View(resumen_grado)
 resumen_zona <- Data_ImputM %>%
   group_by(zona) %>%
   summarise(
-    edad_media = mean(edad, na.rm = TRUE),
-    edad_mediana = median(edad, na.rm = TRUE),
-    edad_sd = sd(edad, na.rm = TRUE),
-    HHD_media = mean(HHD, na.rm = TRUE),
-    HHD_mediana = median(HHD, na.rm = TRUE),
-    HHD_sd = sd(HHD, na.rm = TRUE),
-    HHI_media = mean(HHI, na.rm = TRUE),
-    HHI_mediana = median(HHI, na.rm = TRUE),
-    HHI_sd = sd(HHI, na.rm = TRUE),
-    per_hog_media = mean(per.hog, na.rm = TRUE),
-    per_hog_mediana = median(per.hog, na.rm = TRUE),
-    per_hog_sd = sd(per.hog, na.rm = TRUE)
+    edad_media = mean(edad),
+    edad_mediana = median(edad),
+    edad_sd = sd(edad),
+    HHD_media = mean(HHD),
+    HHD_mediana = median(HHD),
+    HHD_sd = sd(HHD),
+    HHI_media = mean(HHI),
+    HHI_mediana = median(HHI),
+    HHI_sd = sd(HHI),
+    per_hog_media = mean(per.hog),
+    per_hog_mediana = median(per.hog),
+    per_hog_sd = sd(per.hog)
   )
  View(resumen_zona)
  
